@@ -3,6 +3,10 @@ package com.example.ymeng.tomorrowhelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * 我是MianActivity
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
