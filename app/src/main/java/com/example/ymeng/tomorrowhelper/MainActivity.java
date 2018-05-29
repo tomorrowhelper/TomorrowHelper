@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 /**
  * 我是MianActivity
- * tomorrow two update
+ * 在家里修改2018/5/29/ 14:47
  */
 
 public class MainActivity extends AppCompatActivity {
