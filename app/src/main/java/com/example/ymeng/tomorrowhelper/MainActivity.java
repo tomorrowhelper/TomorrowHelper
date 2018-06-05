@@ -8,12 +8,14 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
-import com.zhy.base.fileprovider.FileProvider7;
 
 import java.io.File;
 
@@ -44,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        Intent intent = new Intent(this,DownLoadService.class);
-       startActivity(intent);
+      // startActivity(intent);
+        startService(intent);
        bindService(intent,mConnection,BIND_AUTO_CREATE);
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
-           // ActivityCompat,requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+
         }
 
     }
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //2. 设置 category
         intent.addCategory(Intent.CATEGORY_DEFAULT);
-        FileProvider7.setIntentDataAndType(MainActivity.this, intent, "application/vnd.android.package-archive", file, true);
+     //   FileProvider7.setIntentDataAndType(MainActivity.this, intent, "application/vnd.android.package-archive", file, true);
         // MainActivity.this.startActivityForResult(intent, 125);// 如果用户取消安装的话,会返回结果,回调方法onActivityResult
         MainActivity.this.startActivity(intent);
     }
@@ -75,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void DownloadBtn(View view) {
+        String url = "https://raw.githubusercontent.com/guolindev/eclipse/master/eclipse-inst-win64.exe";
+        mDownloadBinder.startDownload(url);
 
     }
 
@@ -84,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void PausedBtn(View view) {
-
+        mDownloadBinder.pauseDownload();
     }
 
     /**
@@ -93,8 +99,26 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void CanceledBtn(View view) {
-
+        mDownloadBinder.canceledDownload();
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                if(grantResults.length>0&&grantResults[0]!=PackageManager.PERMISSION_GRANTED){
+                    ToastUtil.show("权限拒绝");
+                    finish();
+                }
+                break;
+                default:
+        }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(mConnection);
+    }
 }

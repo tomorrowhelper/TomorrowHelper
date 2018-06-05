@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.widget.Toast;
 
 import com.example.ymeng.tomorrowhelper.MainActivity;
 import com.example.ymeng.tomorrowhelper.R;
@@ -42,7 +43,7 @@ public class DownLoadService extends Service {
             //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
             stopForeground(true);
             getNotificantionManager().notify(1, getNotificantion("Download Success", -1));
-            ToastUtil.show("Download Success");
+            Toast.makeText(DownLoadService.this, "Download Success", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -51,13 +52,14 @@ public class DownLoadService extends Service {
             //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
             stopForeground(true);
             getNotificantionManager().notify(1, getNotificantion("Download Failed", -1));
-            ToastUtil.show("Download Failed");
+            Toast.makeText(DownLoadService.this, "Download Failed", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onPaused() {
             mDownLoadTask = null;
-            ToastUtil.show("Paused");
+
+            Toast.makeText(DownLoadService.this, "Paused", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -66,6 +68,7 @@ public class DownLoadService extends Service {
             //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
             stopForeground(true);
             ToastUtil.show("Canceled");
+            Toast.makeText(DownLoadService.this, "Canceled", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -84,7 +87,8 @@ public class DownLoadService extends Service {
                 mDownLoadTask = new DownLoadTask(mDownloadListener);
                 mDownLoadTask.execute(mDownloadUrl);
                 startForeground(1, getNotificantion("Downloading...", 0));
-                ToastUtil.show("Downloading...");
+
+                Toast.makeText(DownLoadService.this, "Downloading...", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -115,8 +119,7 @@ public class DownLoadService extends Service {
                     getNotificantionManager().cancel(1);
                     stopForeground(true);
 
-                    ToastUtil.show("canceled");
-
+                    Toast.makeText(DownLoadService.this, "canceled", Toast.LENGTH_SHORT).show();
                 }
             }
         }

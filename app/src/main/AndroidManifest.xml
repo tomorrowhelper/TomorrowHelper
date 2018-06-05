@@ -80,6 +80,7 @@
             </intent-filter>
         </activity>
 
+        <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
     </application>
 
 </manifest>
