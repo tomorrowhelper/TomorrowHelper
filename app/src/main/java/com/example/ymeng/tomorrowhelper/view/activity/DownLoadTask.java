@@ -2,6 +2,7 @@ package com.example.ymeng.tomorrowhelper.view.activity;
 
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 
 import com.example.ymeng.tomorrowhelper.view.interfacefolder.DownloadListener;
 
@@ -49,7 +50,7 @@ public class DownLoadTask extends AsyncTask<String, Integer, Integer> {
             String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
             String directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
             file = new File(directory + fileName);
-
+            Log.e("TAG", "doInBackground: "+file);
             if (file.exists()) {
                 downLoadedLength = file.length();
             }
