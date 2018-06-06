@@ -38,6 +38,7 @@ public class DownLoadService extends Service {
         @Override
         public void onProgress(int progress) {
             getNotificantionManager().notify(1, getNotificantion("Downloading...", progress));
+
         }
 
         @Override

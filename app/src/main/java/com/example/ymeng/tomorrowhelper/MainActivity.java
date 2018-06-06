@@ -16,6 +16,7 @@ import android.view.View;
 
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
+import com.zhy.base.fileprovider.FileProvider7;
 
 import java.io.File;
 
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //2. 设置 category
         intent.addCategory(Intent.CATEGORY_DEFAULT);
-     //   FileProvider7.setIntentDataAndType(MainActivity.this, intent, "application/vnd.android.package-archive", file, true);
+        FileProvider7.setIntentDataAndType(MainActivity.this, intent, "application/vnd.android.package-archive", file, true);
         // MainActivity.this.startActivityForResult(intent, 125);// 如果用户取消安装的话,会返回结果,回调方法onActivityResult
         MainActivity.this.startActivity(intent);
     }
