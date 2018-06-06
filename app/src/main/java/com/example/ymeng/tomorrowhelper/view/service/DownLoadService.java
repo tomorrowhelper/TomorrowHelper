@@ -1,12 +1,15 @@
 package com.example.ymeng.tomorrowhelper.view.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -69,6 +72,9 @@ public class DownLoadService extends Service {
             stopForeground(true);
             ToastUtil.show("Canceled");
             Toast.makeText(DownLoadService.this, "Canceled", Toast.LENGTH_SHORT).show();
+
+
+
         }
     };
 
@@ -125,24 +131,99 @@ public class DownLoadService extends Service {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.O)
+    private void createNotificationChannel(String channelId, String channelName, int importance) {
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(
+                NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(channel);
+    }
+
     private NotificationManager getNotificantionManager() {
-        return (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager  notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "1";
+            String channelName = "下载";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            createNotificationChannel(channelId, channelName, importance);
+
+            channelId = "2";
+            channelName = "订阅消息";
+            importance = NotificationManager.IMPORTANCE_DEFAULT;
+            createNotificationChannel(channelId, channelName, importance);
+        }
+        return notificationManager;
     }
 
     private Notification getNotificantion(String title, int progress) {
-        Intent intent = new Intent(this, MainActivity.class);
+
+ /*       NotificationCompat.Builder notifyBuilder =
+                new NotificationCompat.Builder( this ).setContentTitle( title )
+                        .setContentText( "显示" )
+                        .setSmallIcon( R.mipmap.ic_launcher )
+                        // 点击消失
+                        .setAutoCancel( true )
+                        // 设置该通知优先级
+                        .setPriority( Notification.PRIORITY_MAX )
+                        .setLargeIcon( BitmapFactory.decodeResource( getResources(), R.mipmap.ic_launcher ) )
+                        .setTicker( "mTicker" )
+                        // 通知首次出现在通知栏，带上升动画效果的
+                        .setWhen( System.currentTimeMillis() )
+                        // 通知产生的时间，会在通知信息里显示
+                        // 向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
+                        .setDefaults( Notification.DEFAULT_VIBRATE | Notification.DEFAULT_ALL | Notification.DEFAULT_SOUND );
+        PendingIntent resultPendingIntent =
+                PendingIntent.getActivity( this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+        notifyBuilder.setContentIntent( resultPendingIntent );
+        getNotificantionManager().notify( 1, notifyBuilder.build() );*/
+//-------------------------------------------------------------------------------------
+     /*   String id = "my_channel_01";
+        String name="我是渠道名字";
+        NotificationManager  notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        Notification notification = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_LOW);
+            Toast.makeText(this, mChannel.toString(), Toast.LENGTH_SHORT).show();
+            Log.i("TAG", mChannel.toString());
+            notificationManager.createNotificationChannel(mChannel);
+            notification = new Notification.Builder(this)
+                    .setChannelId(id)
+                    .setContentTitle("5 new messages")
+                    .setContentText("hahaha")
+                    .setSmallIcon(R.mipmap.ic_launcher).build();
+        } else {
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+                    .setContentTitle("5 new messages")
+                    .setContentText("hahaha")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setOngoing(true);
+                  //  .setChannel(id)//无效
+            notification = notificationBuilder.build();
+        }
+        notificationManager.notify(111123, notification);*/
+//-------------------------------------------------------------------------------------
+
+
+       Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//如果在栈顶则无需创建新的实例
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+      //  Notification builder = new NotificationCompat.Builder(this,"1");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"1");
+     //   Notification notification = new NotificationCompat.Builder(this, "chat")
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
         builder.setContentIntent(pi);
         builder.setContentTitle(title);
+       // builder.setDefaults(Notification.DEFAULT_ALL);//取消震动无效
+        // builder.setDefaults(Notification.DEFAULT_SOUND);//取消震动
+        //  builder.setVibrate(new long[]{0l}); //取消震动
         if (progress > 0) {
             //当下载进度大于0时才显示下载进度
             builder.setContentText(progress + " %");
             builder.setProgress(100, progress, false);
         }
-
+        long[] vibrates = { 0, 1000, 1000, 1000 };
+        //builder.vibrate = vibrates;
         return builder.build();
     }
 
