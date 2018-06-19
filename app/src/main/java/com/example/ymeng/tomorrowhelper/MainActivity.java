@@ -16,6 +16,7 @@ import android.view.View;
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
+import com.zhy.base.fileprovider.FileProvider7;
 
 /**
  * 我是MianActivity
