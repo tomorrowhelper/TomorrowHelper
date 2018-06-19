@@ -52,7 +52,7 @@ public class DownLoadService extends Service {
         @Override
         public void onFailed() {
             mDownLoadTask = null;
-            //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
+            //下载失败时将前台服务通知关闭，并创建一个下载成功的通知
             stopForeground(true);
             getNotificantionManager().notify(1, getNotificantion("Download Failed", -1));
             Toast.makeText(DownLoadService.this, "Download Failed", Toast.LENGTH_SHORT).show();
@@ -68,7 +68,7 @@ public class DownLoadService extends Service {
         @Override
         public void onCanceled() {
             mDownLoadTask = null;
-            //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
+            //取消
             stopForeground(true);
             ToastUtil.show("Canceled");
             Toast.makeText(DownLoadService.this, "Canceled", Toast.LENGTH_SHORT).show();
@@ -134,8 +134,18 @@ public class DownLoadService extends Service {
     @TargetApi(Build.VERSION_CODES.O)
     private void createNotificationChannel(String channelId, String channelName, int importance) {
         NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(
-                NOTIFICATION_SERVICE);
+      /* channel.setBypassDnd(true); //设置绕过免打扰模式
+        channel.canBypassDnd(); //检测是否绕过免打扰模式
+        channel.setLockscreenVisibility(Notification.VISIBILITY_SECRET);//设置在锁屏界面上显示这条通知
+        channel.setLightColor(Color.GREEN);
+
+        channel.setDescription("description of this notification");//对用户可见的描述
+      channel.setShowBadge(true);//设置发布到此频道的通知是否可以显示为应用程序图标徽章在启动器中。
+        //设置发布到此频道的通知的振动模式。 如果提供模式有效（非空，非空），将启用{@link #enableVibration（boolean）}振动}。 否则，振动将被禁用。
+      channel.setVibrationPattern(new long[]{100,200,300,400,500,600});//设置震动频率
+        channel.enableVibration(true);//设置发布到此频道的通知是否应该振动。 振动模式可以用{@link #setVibrationPattern（long []）}设置。
+      // channel.setGroup("通知渠道组ID");*/
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.createNotificationChannel(channel);
     }
 
@@ -147,10 +157,10 @@ public class DownLoadService extends Service {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             createNotificationChannel(channelId, channelName, importance);
 
-            channelId = "2";
-            channelName = "订阅消息";
+            String channel2Id = "2";
+            String channel2Name = "订阅消息";
             importance = NotificationManager.IMPORTANCE_DEFAULT;
-            createNotificationChannel(channelId, channelName, importance);
+            createNotificationChannel(channel2Id, channel2Name, importance);
         }
         return notificationManager;
     }
@@ -209,11 +219,18 @@ public class DownLoadService extends Service {
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
       //  Notification builder = new NotificationCompat.Builder(this,"1");
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"1");
-     //   Notification notification = new NotificationCompat.Builder(this, "chat")
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
         builder.setContentIntent(pi);
         builder.setContentTitle(title);
+        builder.setPriority(1000) ;
+        builder.setAutoCancel(true) ;
+       // builder.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400}) ;
+        //  builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE) ;
+        // builder.setNumber(3) ;//设置显示角标的数量
+        //  builder.setBadgeIconType(BADGE_ICON_SMALL);//设置显示角标的样式
+     //     builder.setOngoing(false);//设置这是否为正在进行的通知。
+       builder.setTimeoutAfter(5000);//设置通知被创建多长时间之后自动取消通知栏的通知。
        // builder.setDefaults(Notification.DEFAULT_ALL);//取消震动无效
         // builder.setDefaults(Notification.DEFAULT_SOUND);//取消震动
         //  builder.setVibrate(new long[]{0l}); //取消震动
@@ -222,8 +239,6 @@ public class DownLoadService extends Service {
             builder.setContentText(progress + " %");
             builder.setProgress(100, progress, false);
         }
-        long[] vibrates = { 0, 1000, 1000, 1000 };
-        //builder.vibrate = vibrates;
         return builder.build();
     }
 
