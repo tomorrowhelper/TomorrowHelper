@@ -44,7 +44,7 @@ public class FloatingService extends Service {
         if (Settings.canDrawOverlays(this)) {
             // 获取WindowManager服务
             windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-
+  
             // 新建悬浮窗控件
             Button button = new Button(getApplicationContext());
             button.setText("Floating Window");

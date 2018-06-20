@@ -15,8 +15,8 @@ import android.view.View;
 
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
+import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
-import com.zhy.base.fileprovider.FileProvider7;
 
 /**
  * 我是MianActivity
@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       Intent intent = new Intent(this,DownLoadService.class);
-      // startActivity(intent);
+        Intent intent = new Intent(this, DownLoadService.class);
+        // startActivity(intent);
         startService(intent);
-       bindService(intent,mConnection,BIND_AUTO_CREATE);
-        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        bindService(intent, mConnection, BIND_AUTO_CREATE);
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 
         }
 
@@ -72,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
         // MainActivity.this.startActivityForResult(intent, 125);// 如果用户取消安装的话,会返回结果,回调方法onActivityResult
         MainActivity.this.startActivity(intent);*/
         NotificationHelper notificationUtils = new NotificationHelper(this);
-                     notificationUtils.sendNotification("测试标题", "测试内容");
-
-
+        notificationUtils.sendNotification("测试标题", "测试内容");
 
 
     }
@@ -108,17 +106,26 @@ public class MainActivity extends AppCompatActivity {
         mDownloadBinder.canceledDownload();
     }
 
+    /**
+     *
+     * 悬浮窗界面
+     * @param view
+     */
+    public void WindowBtn(View view) {
+    startActivity(new Intent(this,FloatingWindowActivty.class));
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        switch (requestCode) {
             case 1:
-                if(grantResults.length>0&&grantResults[0]!=PackageManager.PERMISSION_GRANTED){
+                if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     ToastUtil.show("权限拒绝");
                     finish();
                 }
                 break;
-                default:
+            default:
         }
     }
 

@@ -10,7 +10,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
+    <!--悬浮窗口-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
    <!-- 添加安装未知来源应用的权限 8.0 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
@@ -81,8 +82,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.FloatingWindowActivty"/><!--悬浮窗-->
 
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
+        <service android:name="com.example.ymeng.tomorrowhelper.view.service.FloatingService"></service><!--悬浮窗service-->
     </application>
 
 </manifest>
