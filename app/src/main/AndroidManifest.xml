@@ -83,6 +83,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.FloatingWindowActivty"/><!--悬浮窗-->
+        <activity android:name=".view.activity.RecyclerActivty"/><!--Recycler-->
 
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.FloatingService"></service><!--悬浮窗service-->

@@ -16,6 +16,7 @@ import android.view.View;
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
+import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
 
 /**
@@ -107,12 +108,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * 悬浮窗界面
      * @param view
      */
     public void WindowBtn(View view) {
     startActivity(new Intent(this,FloatingWindowActivty.class));
+    }
+
+    /**
+     * Recycleview
+     * @param view
+     */
+    public void RecyclerBtn(View view) {
+    startActivity(new Intent(this,RecyclerActivty.class));
     }
 
     @Override

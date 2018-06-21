@@ -38,5 +38,11 @@
         android:onClick="WindowBtn"
         android:text="悬浮窗界面" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="RecyclerBtn"
+        android:text="网格recycler" />
+
 
 </LinearLayout>

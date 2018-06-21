@@ -6,6 +6,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.example.ymeng.tomorrowhelper.R;
@@ -32,22 +33,53 @@ public class FloatingWindowActivty extends SimpleActivity {
 
     @Override
     protected void initDatas() {
-     //   startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), REQUEST_CODE);
+        //   startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), REQUEST_CODE);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    public void onWindowBtn1(View view){
+    public void onWindowBtn1(View view) {
         //获取权限
         if (!Settings.canDrawOverlays(this)) {
             Toast.makeText(this, "当前无权限，请授权", Toast.LENGTH_SHORT);
             startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), 0);
         } else {
-            startService(new Intent(this, FloatingService.class));
+            Intent mIntentService = new Intent(this, FloatingService.class);
+            mIntentService.putExtra("count", 1);
+            startService(mIntentService);
+
         }
 
     }
-    public void onWindowBtn2(View view){
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void onWindowBtn2(View view) {
+        //获取权限
+        if (!Settings.canDrawOverlays(this)) {
+            Toast.makeText(this, "当前无权限，请授权", Toast.LENGTH_SHORT);
+            startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), 0);
+        } else {
+            Intent mIntentService = new Intent(this, FloatingService.class);
+            mIntentService.putExtra("count", 2);
+            startService(mIntentService);
+
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void onWindowBtn3(View view) {
+        //获取权限
+        if (!Settings.canDrawOverlays(this)) {
+            Toast.makeText(this, "当前无权限，请授权", Toast.LENGTH_SHORT);
+            startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), 0);
+        } else {
+            Intent mIntentService = new Intent(this, FloatingService.class);
+            mIntentService.putExtra("count", 3);
+            startService(mIntentService);
+        }
+    }
+
+    public void onWindowBtn4(View view) {
        /* ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW,}, 1);*/
     }
