@@ -44,5 +44,11 @@
         android:onClick="RecyclerBtn"
         android:text="网格recycler" />
 
+    <Button
+        android:text="测试Gson"
+        android:onClick="GsonBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

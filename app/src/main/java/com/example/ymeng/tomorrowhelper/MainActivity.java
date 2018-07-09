@@ -25,7 +25,7 @@ import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
  * 在公司修改
  * 在dev分支修改
  * 我在主分支2018/6/29 11:02
- * 
+ *
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -124,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void RecyclerBtn(View view) {
     startActivity(new Intent(this,RecyclerActivty.class));
+    }
+
+    public void GsonBtn(View view){
+
     }
 
     @Override
