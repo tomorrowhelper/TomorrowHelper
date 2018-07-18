@@ -50,5 +50,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/Get_Image"
+            android:layout_width="128dp"
+            android:layout_height="36dp" />
+
+        <Button
+            android:text="测试Image"
+            android:onClick="ImageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
