@@ -7,7 +7,6 @@ import com.example.ymeng.tomorrowhelper.app.Images;
 import com.example.ymeng.tomorrowhelper.view.activity.base.SimpleActivity;
 import com.example.ymeng.tomorrowhelper.view.adapter.PhotoWallAdapter;
 
-
 public class PhotoWallActivity extends SimpleActivity {
     /**
      *用于展示照片墙的GridView
