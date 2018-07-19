@@ -1,21 +1,19 @@
 package com.example.ymeng.tomorrowhelper.util;
 
-import com.bumptech.glide.load.Key;
-import com.bumptech.glide.util.Preconditions;
-
-import java.security.MessageDigest;
-
 /**
  * Author:YMeng
  * Time:2018/7/12  13:49
  * This is ObjKey
+ * Glide基于3.7.0使用
  */
-public class ObjKey implements Key {
+public class ObjKey {
+/*public class ObjKey implements Key {
+
 
     private final Object object;
 
     public ObjKey(Object object) {
-        this.object = Preconditions.checkNotNull(object);
+     //   this.object = Preconditions.checkNotNull(object);
     }
 
     @Override
@@ -45,6 +43,7 @@ public class ObjKey implements Key {
     public void updateDiskCacheKey(MessageDigest messageDigest) {
         messageDigest.update(object.toString().getBytes(CHARSET));
     }
+*/
 
 
 }

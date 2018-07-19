@@ -8,6 +8,9 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
+        //添加butterknife
+      //  classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'  //添加这一行
+
         //添加librararyforfileprovdider插件
  //       classpath 'com.novoda:bintray-release:0.5.0'
         //greendao配置

@@ -84,6 +84,8 @@
         </activity>
         <activity android:name=".view.activity.FloatingWindowActivty"/><!--悬浮窗-->
         <activity android:name=".view.activity.RecyclerActivty"/><!--Recycler-->
+        <activity android:name=".view.activity.Glide_Activity"/><!--Glide-->
+        <activity android:name=".view.activity.CropImageActivity"/><!--裁剪Image图片-->
 
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.FloatingService"></service><!--悬浮窗service-->

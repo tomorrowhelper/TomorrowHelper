@@ -17,12 +17,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.ymeng.tomorrowhelper.util.Code;
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
-import com.example.ymeng.tomorrowhelper.util.ObjKey;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
+import com.example.ymeng.tomorrowhelper.view.activity.CropImageActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
+import com.example.ymeng.tomorrowhelper.view.activity.Glide_Activity;
 import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
 
@@ -74,16 +74,18 @@ public class MainActivity extends AppCompatActivity {
                 //时间戳
                 long timeStampSec = System.currentTimeMillis()/1000;
                 String timestamp = String.format("%010d", timeStampSec);
-                RequestOptions options = new RequestOptions()
+                //4.0以上的glide版本
+             /*   RequestOptions options = new RequestOptions()
                         .centerCrop()
                         .signature(new ObjKey(""+timestamp))
-                        .skipMemoryCache(true);
+                        .skipMemoryCache(true);*/
 
                 Toast.makeText(MainActivity.this, "mImage", Toast.LENGTH_SHORT).show();
                 Glide.with(MainActivity.this)
                         // .load("http://192.168.30.134:9999/login/registVerfyCode?randkey="+uuid+timestamp)
                         .load("http://192.168.30.134:9999/login/registVerfyCode?randkey=e65b5443-928a-4058-8ce9-466e569a4fb41531368234")
-                        .apply(options)
+                        //4.0以上的glide版本
+                       // .apply(options)
 
                         .into(mImage);
             }
@@ -183,9 +185,22 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, ""+realCode, Toast.LENGTH_SHORT).show();
     }
 
+
+    /**
+     * Glide相关
+     */
+    public void GlideBtn(View view){
+        startActivity(new Intent(this,Glide_Activity.class));
+
+    }
+    /**
+     * 裁剪Image
+     */
+    public void CropImageBtm(View view ){
+        startActivity(new Intent(this,CropImageActivity.class));
+    }
     /**
      *4984513019362056
-
      */
 
     @Override
