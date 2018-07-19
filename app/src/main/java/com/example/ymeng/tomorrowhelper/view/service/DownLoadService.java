@@ -69,7 +69,7 @@ public class DownLoadService extends Service {
         @Override
         public void onCanceled() {
             mDownLoadTask = null;
-            //取消
+            //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
             stopForeground(true);
             ToastUtil.show("Canceled");
             Toast.makeText(DownLoadService.this, "Canceled", Toast.LENGTH_SHORT).show();
@@ -135,18 +135,8 @@ public class DownLoadService extends Service {
     @TargetApi(Build.VERSION_CODES.O)
     private void createNotificationChannel(String channelId, String channelName, int importance) {
         NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
-      /* channel.setBypassDnd(true); //设置绕过免打扰模式
-        channel.canBypassDnd(); //检测是否绕过免打扰模式
-        channel.setLockscreenVisibility(Notification.VISIBILITY_SECRET);//设置在锁屏界面上显示这条通知
-        channel.setLightColor(Color.GREEN);
-
-        channel.setDescription("description of this notification");//对用户可见的描述
-      channel.setShowBadge(true);//设置发布到此频道的通知是否可以显示为应用程序图标徽章在启动器中。
-        //设置发布到此频道的通知的振动模式。 如果提供模式有效（非空，非空），将启用{@link #enableVibration（boolean）}振动}。 否则，振动将被禁用。
-      channel.setVibrationPattern(new long[]{100,200,300,400,500,600});//设置震动频率
-        channel.enableVibration(true);//设置发布到此频道的通知是否应该振动。 振动模式可以用{@link #setVibrationPattern（long []）}设置。
-      // channel.setGroup("通知渠道组ID");*/
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(
+                NOTIFICATION_SERVICE);
         notificationManager.createNotificationChannel(channel);
     }
 
@@ -158,10 +148,10 @@ public class DownLoadService extends Service {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             createNotificationChannel(channelId, channelName, importance);
 
-            String channel2Id = "2";
-            String channel2Name = "订阅消息";
+            channelId = "2";
+            channelName = "订阅消息";
             importance = NotificationManager.IMPORTANCE_DEFAULT;
-            createNotificationChannel(channel2Id, channel2Name, importance);
+            createNotificationChannel(channelId, channelName, importance);
         }
         return notificationManager;
     }

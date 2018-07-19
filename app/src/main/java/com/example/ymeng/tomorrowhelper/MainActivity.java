@@ -23,6 +23,7 @@ import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.example.ymeng.tomorrowhelper.view.activity.CropImageActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
 import com.example.ymeng.tomorrowhelper.view.activity.Glide_Activity;
+import com.example.ymeng.tomorrowhelper.view.activity.PhotoWallActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
 
@@ -199,6 +200,14 @@ public class MainActivity extends AppCompatActivity {
     public void CropImageBtm(View view ){
         startActivity(new Intent(this,CropImageActivity.class));
     }
+    /**
+     * 缓存照片墙
+     */
+    public void LruCacheBtm(View view ){
+        startActivity(new Intent(this,PhotoWallActivity.class));
+    }
+
+
     /**
      *4984513019362056
      */
