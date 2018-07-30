@@ -87,6 +87,7 @@
         <activity android:name=".view.activity.Glide_Activity"/><!--Glide-->
         <activity android:name=".view.activity.CropImageActivity"/><!--裁剪Image图片-->
         <activity android:name=".view.activity.PhotoWallActivity"/><!--LruCache缓存照片墙-->
+        <activity android:name=".view.activity.Webview_Activity"/><!--Webview-->
 
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.FloatingService"></service><!--悬浮窗service-->

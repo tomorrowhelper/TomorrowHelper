@@ -40,16 +40,20 @@ public class Glide_Activity extends SimpleActivity {
     }
 
     public void loadImage(View view){
-        String url = "http://cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg";
+        String path = "http://cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg";
         String urlGif = "http://p1.pstatp.com/large/166200019850062839d3";
         Glide.with(this)
-                .load(url)
+                .load(path)
                 //.asBitmap()//只加载静态图片
                 //.asGif()//只加载Gif图片，如果强制静态图片加载，就会错误，显示error图片
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.error)
+                .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.NONE)//禁止缓存
                 .into(imageView);
+        Glide.with(this).load(path).into(imageView);
+
+
 
     }
 

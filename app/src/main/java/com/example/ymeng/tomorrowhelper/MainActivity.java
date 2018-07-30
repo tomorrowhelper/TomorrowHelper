@@ -25,6 +25,7 @@ import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
 import com.example.ymeng.tomorrowhelper.view.activity.Glide_Activity;
 import com.example.ymeng.tomorrowhelper.view.activity.PhotoWallActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
+import com.example.ymeng.tomorrowhelper.view.activity.Webview_Activity;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
 
 import java.util.UUID;
@@ -205,6 +206,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public void LruCacheBtm(View view ){
         startActivity(new Intent(this,PhotoWallActivity.class));
+    }
+    /**
+     * Webview
+     */
+    public void WvBtm(View view ){
+        startActivity(new Intent(this,Webview_Activity.class));
     }
 
 

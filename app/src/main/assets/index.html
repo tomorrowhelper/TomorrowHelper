@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webview</title>
+    <style type="text/css">
+    body{
+        background: #59ffbb;
+    }
+        .btn{
+            line-height: 40px;
+            margin: 10px;
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<h2>WebView</h2>
+<div><span>请输入要传入的值：</span><input type="text" id="input"></div>
+<div id="btn" class="btn"><span>点我</span></div>
+<script type="text/javascript">
+    var btnEle = document.getElementById("btn");
+    var inputEle = document.getElementById("input");
+    btnEle.addEventListener("click",function () {
+        var str = inputEle.value;
+        //alert(str);
+        if(window.imoocLauncher){
+            imoocLauncher.setValue(str);
+        }else{
+            alert("imoocLauncher not found!");
+        }
+    });
+
+    var remote = function (str) {
+        inputEle.value = str;
+    }
+</script>
+</body>
+</html>

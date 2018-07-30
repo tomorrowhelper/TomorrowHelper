@@ -32,6 +32,7 @@ public class PhotoWallActivity extends SimpleActivity {
     protected void initDatas() {
         adapter = new PhotoWallAdapter(this, 0, Images.imageThumbUrls, mPhotoWallGV);
         mPhotoWallGV.setAdapter(adapter);
+
     }
 
     @Override
