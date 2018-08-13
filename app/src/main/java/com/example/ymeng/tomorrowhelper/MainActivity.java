@@ -20,9 +20,11 @@ import com.bumptech.glide.Glide;
 import com.example.ymeng.tomorrowhelper.util.Code;
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
+import com.example.ymeng.tomorrowhelper.view.activity.BottomSheet_Activity;
 import com.example.ymeng.tomorrowhelper.view.activity.CropImageActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
 import com.example.ymeng.tomorrowhelper.view.activity.Glide_Activity;
+import com.example.ymeng.tomorrowhelper.view.activity.Lottie_Activity;
 import com.example.ymeng.tomorrowhelper.view.activity.PhotoWallActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
 import com.example.ymeng.tomorrowhelper.view.activity.Webview_Activity;
@@ -213,6 +215,20 @@ public class MainActivity extends AppCompatActivity {
     public void WvBtm(View view ){
         startActivity(new Intent(this,Webview_Activity.class));
     }
+    /**
+     * BottomSheet
+     */
+    public void BottomSheet(View view ){
+        startActivity(new Intent(this,BottomSheet_Activity.class));
+    }
+    /**
+     * BottomSheet
+     */
+    public void LottieBtn(View view ){
+        startActivity(new Intent(this,Lottie_Activity.class));
+    }
+
+
 
 
     /**

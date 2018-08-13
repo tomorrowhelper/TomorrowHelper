@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.ymeng.tomorrowhelper"
-        minSdkVersion 15
+        minSdkVersion 24
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -87,4 +87,6 @@ dependencies {
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     implementation project(':librararyforfileprovdider')
+//UI测试
+    implementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 }

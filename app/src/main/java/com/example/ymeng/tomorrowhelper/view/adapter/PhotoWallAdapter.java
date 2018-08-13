@@ -111,7 +111,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
     }
 
     /**
-     * 将一张图片存储到LruiCache中
+     * 将一张图片存储到LruCache中
      *
      * @param key    LruCache的键，这里传入图片的URL地址
      * @param bitmap LruCache的值，这里传入从网络上下载的Bitmap对象
@@ -176,9 +176,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
                     imageView.setImageBitmap(bitmap);
 
                 }
-
             }
-
         }
     }
 

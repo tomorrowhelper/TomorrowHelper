@@ -4,92 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/aaa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="OperApkBtn"
-        android:text="安装" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="DownloadBtn"
-        android:text="下载" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="PausedBtn"
-        android:text="暂停" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="CanceledBtn"
-        android:text="取消" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="WindowBtn"
-        android:text="悬浮窗界面" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="RecyclerBtn"
-        android:text="网格recycler" />
-
-    <Button
-        android:text="测试Gson"
-        android:onClick="GsonBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
-
-
-        <ImageView
-            android:id="@+id/Get_Image"
-            android:layout_width="128dp"
-            android:layout_height="36dp" />
+        <Button
+            android:id="@+id/aaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="OperApkBtn"
+            android:text="安装" />
 
         <Button
-            android:text="测试Image"
-            android:onClick="ImageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="DownloadBtn"
+            android:text="下载" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="PausedBtn"
+            android:text="暂停" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="CanceledBtn"
+            android:text="取消" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="WindowBtn"
+            android:text="悬浮窗界面" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="RecyclerBtn"
+            android:text="网格recycler" />
+
+        <Button
+            android:text="测试Gson"
+            android:onClick="GsonBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
+
+            <ImageView
+                android:id="@+id/Get_Image"
+                android:layout_width="128dp"
+                android:visibility="gone"
+                android:layout_height="36dp" />
+
+            <Button
+                android:text="测试Image"
+                android:onClick="ImageBtn"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:text="Glide相关"
+            android:onClick="GlideBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="裁剪Image"
+            android:onClick="CropImageBtm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="缓存照片墙"
+            android:onClick="LruCacheBtm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="Webview"
+            android:onClick="WvBtm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <Button
-        android:text="Glide相关"
-        android:onClick="GlideBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:text="裁剪Image"
-        android:onClick="CropImageBtm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:text="缓存照片墙"
-        android:onClick="LruCacheBtm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:text="Webview"
-        android:onClick="WvBtm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="BottomSheet"
+           android:text="BottomSheet" />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="LottieBtn"
+           android:text="Lottie" />
+   </LinearLayout>
 
 </LinearLayout>
