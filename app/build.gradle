@@ -87,6 +87,10 @@ dependencies {
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     implementation project(':librararyforfileprovdider')
-//UI测试
+    //UI测试
     implementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    //让图片动起来
+    implementation ('com.airbnb.android:lottie:2.0.0-rc1'){
+        exclude group: 'com.android.support'
+    }
 }

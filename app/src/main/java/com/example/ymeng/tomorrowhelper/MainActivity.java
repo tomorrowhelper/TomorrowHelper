@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,BottomSheet_Activity.class));
     }
     /**
-     * BottomSheet
+     * 让图片动起来
      */
     public void LottieBtn(View view ){
         startActivity(new Intent(this,Lottie_Activity.class));

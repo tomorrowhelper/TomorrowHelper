@@ -90,6 +90,8 @@
         <activity android:name=".view.activity.Webview_Activity"/><!--Webview-->
         <activity android:name=".view.activity.BottomSheet_Activity"/><!--BottomSheet_Activity-->
         <activity android:name=".view.activity.Lottie_Activity"/><!--Lottie-->
+        <activity android:name=".view.activity.LottieClickActivity"/><!--Lottie-->
+        <activity android:name=".view.activity.LottieNetworkActivity"/><!--Lottie-->
 
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
         <service android:name="com.example.ymeng.tomorrowhelper.view.service.FloatingService"></service><!--悬浮窗service-->
