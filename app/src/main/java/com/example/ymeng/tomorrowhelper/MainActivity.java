@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mImage = findViewById(R.id.Get_Image);
+        mImage = (ImageView) findViewById(R.id.Get_Image);
         Intent intent = new Intent(this, DownLoadService.class);
         // startActivity(intent);
         startService(intent);
@@ -225,6 +225,12 @@ public class MainActivity extends AppCompatActivity {
      * 让图片动起来
      */
     public void LottieBtn(View view ){
+        startActivity(new Intent(this,Lottie_Activity.class));
+    }
+    /**
+     * dagger
+     */
+    public void daggerBtn(View view ){
         startActivity(new Intent(this,Lottie_Activity.class));
     }
 
