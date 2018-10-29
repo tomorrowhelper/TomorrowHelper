@@ -117,6 +117,25 @@
            android:layout_height="wrap_content"
            android:onClick="daggerBtn"
            android:text="dagger" />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="fingerBtn"
+           android:text="指纹" />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="characterBtn"
+           android:text="字符画" />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="detailsBtn"
+           android:text="商品详情" />
+
+
+
+
    </LinearLayout>
 
 </LinearLayout>

@@ -1,17 +1,14 @@
 package com.example.ymeng.tomorrowhelper.view.activity;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.ymeng.tomorrowhelper.R;
 import com.example.ymeng.tomorrowhelper.view.activity.base.SimpleActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Author:YMeng
@@ -46,21 +43,13 @@ public class Glide_Activity extends SimpleActivity {
                 .load(path)
                 //.asBitmap()//只加载静态图片
                 //.asGif()//只加载Gif图片，如果强制静态图片加载，就会错误，显示error图片
-                .placeholder(R.drawable.loading)
-                .error(R.drawable.error)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.NONE)//禁止缓存
+                //        .placeholder(R.drawable.loading)
+                //        .error(R.drawable.error)
+                //        .crossFade()
+                 //     .diskCacheStrategy(DiskCacheStrategy.NONE)//禁止缓存
                 .into(imageView);
         Glide.with(this).load(path).into(imageView);
 
-
-
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

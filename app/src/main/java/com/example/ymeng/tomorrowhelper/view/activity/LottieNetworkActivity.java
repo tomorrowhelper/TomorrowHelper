@@ -20,7 +20,7 @@ public class LottieNetworkActivity extends SimpleActivity {
 
     @Override
     protected void initViews() {
-        animation_view_network = findViewById(R.id.animation_view_network);
+        animation_view_network = (LottieAnimationView) findViewById(R.id.animation_view_network);
 
     }
 

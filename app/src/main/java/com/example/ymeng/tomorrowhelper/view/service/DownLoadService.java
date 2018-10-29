@@ -209,7 +209,7 @@ public class DownLoadService extends Service {
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//如果在栈顶则无需创建新的实例
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
       //  Notification builder = new NotificationCompat.Builder(this,"1");
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"1");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
         builder.setContentIntent(pi);
@@ -221,7 +221,7 @@ public class DownLoadService extends Service {
         // builder.setNumber(3) ;//设置显示角标的数量
         //  builder.setBadgeIconType(BADGE_ICON_SMALL);//设置显示角标的样式
      //     builder.setOngoing(false);//设置这是否为正在进行的通知。
-       builder.setTimeoutAfter(5000);//设置通知被创建多长时间之后自动取消通知栏的通知。
+      // builder.setTimeoutAfter(5000);//设置通知被创建多长时间之后自动取消通知栏的通知。
        // builder.setDefaults(Notification.DEFAULT_ALL);//取消震动无效
         // builder.setDefaults(Notification.DEFAULT_SOUND);//取消震动
         //  builder.setVibrate(new long[]{0l}); //取消震动

@@ -11,17 +11,20 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.ymeng.tomorrowhelper.model.bean.Bean;
 import com.example.ymeng.tomorrowhelper.util.Code;
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.example.ymeng.tomorrowhelper.view.activity.BottomSheet_Activity;
+import com.example.ymeng.tomorrowhelper.view.activity.CharacterActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.CropImageActivity;
+import com.example.ymeng.tomorrowhelper.view.activity.DetailsActivity;
+import com.example.ymeng.tomorrowhelper.view.activity.FingerLoginActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
 import com.example.ymeng.tomorrowhelper.view.activity.Glide_Activity;
 import com.example.ymeng.tomorrowhelper.view.activity.Lottie_Activity;
@@ -29,8 +32,7 @@ import com.example.ymeng.tomorrowhelper.view.activity.PhotoWallActivity;
 import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
 import com.example.ymeng.tomorrowhelper.view.activity.Webview_Activity;
 import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
-
-import java.util.UUID;
+import com.google.gson.Gson;
 
 /**
  * 我是MianActivity
@@ -38,7 +40,6 @@ import java.util.UUID;
  * 在公司修改
  * 在dev分支修改
  * 我在主分支2018/6/29 11:02
- *
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //时间戳
-                long timeStampSec = System.currentTimeMillis()/1000;
+                long timeStampSec = System.currentTimeMillis() / 1000;
                 String timestamp = String.format("%010d", timeStampSec);
                 //4.0以上的glide版本
              /*   RequestOptions options = new RequestOptions()
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         // .load("http://192.168.30.134:9999/login/registVerfyCode?randkey="+uuid+timestamp)
                         .load("http://192.168.30.134:9999/login/registVerfyCode?randkey=e65b5443-928a-4058-8ce9-466e569a4fb41531368234")
                         //4.0以上的glide版本
-                       // .apply(options)
+                        // .apply(options)
 
                         .into(mImage);
             }
@@ -149,96 +150,132 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 悬浮窗界面
+     *
      * @param view
      */
     public void WindowBtn(View view) {
-    startActivity(new Intent(this,FloatingWindowActivty.class));
+        startActivity(new Intent(this, FloatingWindowActivty.class));
     }
 
     /**
      * Recycleview
+     *
      * @param view
      */
     public void RecyclerBtn(View view) {
-    startActivity(new Intent(this,RecyclerActivty.class));
+        startActivity(new Intent(this, RecyclerActivty.class));
     }
 
 
-    public void GsonBtn(View view){
-        //uuid
-        String uuid= UUID.randomUUID().toString();
+    public void GsonBtn(View view) {
+      /*  //uuid
+        String uuid = UUID.randomUUID().toString();
         //时间戳
-        long timeStampSec = System.currentTimeMillis()/1000;
+        long timeStampSec = System.currentTimeMillis() / 1000;
         String timestamp = String.format("%010d", timeStampSec);
-        
-        Toast.makeText(this, ""+uuid, Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "" + uuid, Toast.LENGTH_SHORT).show();
 
         Glide.with(this)
-               // .load("http://192.168.30.134:9999/login/registVerfyCode?randkey="+uuid+timestamp)
+                // .load("http://192.168.30.134:9999/login/registVerfyCode?randkey="+uuid+timestamp)
                 .load("http://192.168.30.134:9999/login/registVerfyCode?randkey=e65b5443-928a-4058-8ce9-466e569a4fb41531368234")
                 //.apply(options)
                 .into(mImage);
-        Log.e("TAG","http://192.168.30.134:9999/login/registVerfyCode?randkey="+uuid+timestamp);
+        Log.e("TAG", "http://192.168.30.134:9999/login/registVerfyCode?randkey=" + uuid + timestamp);*/
+
+        Bean bean = new Gson().fromJson("{ \"success\": false}", Bean.class);
+        if(bean.getMessage()==null|bean.getMessage().getEm()==null){
+            Toast.makeText(this, "为空", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, bean.getMessage().getEm()+"", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 
-    public void ImageBtn(View view){
-        Code.getInstance().setCode("q1wa",4);
+    public void ImageBtn(View view) {
+        Code.getInstance().setCode("q1wa", 4);
         mImage.setImageBitmap(Code.getInstance().createBitmap());
         String realCode = Code.getInstance().getCode().toLowerCase();
-        Toast.makeText(this, ""+realCode, Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "" + realCode, Toast.LENGTH_SHORT).show();
     }
 
 
     /**
      * Glide相关
      */
-    public void GlideBtn(View view){
-        startActivity(new Intent(this,Glide_Activity.class));
+    public void GlideBtn(View view) {
+        startActivity(new Intent(this, Glide_Activity.class));
 
     }
+
     /**
      * 裁剪Image
      */
-    public void CropImageBtm(View view ){
-        startActivity(new Intent(this,CropImageActivity.class));
+    public void CropImageBtm(View view) {
+        startActivity(new Intent(this, CropImageActivity.class));
     }
+
     /**
      * 缓存照片墙
      */
-    public void LruCacheBtm(View view ){
-        startActivity(new Intent(this,PhotoWallActivity.class));
+    public void LruCacheBtm(View view) {
+        startActivity(new Intent(this, PhotoWallActivity.class));
     }
+
     /**
      * Webview
      */
-    public void WvBtm(View view ){
-        startActivity(new Intent(this,Webview_Activity.class));
+    public void WvBtm(View view) {
+        startActivity(new Intent(this, Webview_Activity.class));
     }
+
     /**
      * BottomSheet
      */
-    public void BottomSheet(View view ){
-        startActivity(new Intent(this,BottomSheet_Activity.class));
+    public void BottomSheet(View view) {
+        startActivity(new Intent(this, BottomSheet_Activity.class));
     }
+
     /**
      * 让图片动起来
      */
-    public void LottieBtn(View view ){
-        startActivity(new Intent(this,Lottie_Activity.class));
+    public void LottieBtn(View view) {
+        startActivity(new Intent(this, Lottie_Activity.class));
     }
+
     /**
      * dagger
      */
-    public void daggerBtn(View view ){
-        startActivity(new Intent(this,Lottie_Activity.class));
+    public void daggerBtn(View view) {
+        startActivity(new Intent(this, Lottie_Activity.class));
     }
 
-
-
+    /**
+     * 指纹识别
+     */
+    public void fingerBtn(View view) {
+        startActivity(new Intent(this, FingerLoginActivity.class));
+    }
 
     /**
-     *4984513019362056
+     * 抖音字符画
+     */
+    public void characterBtn(View view) {
+        startActivity(new Intent(this, CharacterActivity.class));
+    }
+
+    /**
+     * 仿电商 商品详情
+     */
+    public void detailsBtn(View view) {
+        startActivity(new Intent(this, DetailsActivity.class));
+
+    }
+
+    /**
+     * 4984513019362056
      */
 
     @Override
@@ -260,10 +297,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unbindService(mConnection);
     }
-
-
-
-
-
-
 }

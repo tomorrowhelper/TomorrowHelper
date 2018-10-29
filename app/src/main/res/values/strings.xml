@@ -19,4 +19,6 @@
 
     <string name="exit_confirm">再点一次退出程序</string>
 
+    <string name="my_accessibility_description">读取微信消息</string>
+
 </resources>

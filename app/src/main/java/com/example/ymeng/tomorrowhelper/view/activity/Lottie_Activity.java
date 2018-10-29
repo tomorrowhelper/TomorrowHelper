@@ -24,7 +24,7 @@ public class Lottie_Activity extends SimpleActivity {
 
     @Override
     protected void initViews() {
-        mLottieAnimationView = findViewById(R.id.lottie_animation_view);
+        mLottieAnimationView = (LottieAnimationView) findViewById(R.id.lottie_animation_view);
         mLottieAnimationView.playAnimation();//开始动画
     }
 

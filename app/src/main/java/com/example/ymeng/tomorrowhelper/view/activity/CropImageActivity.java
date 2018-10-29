@@ -25,7 +25,7 @@ public class CropImageActivity extends SimpleActivity {
 
     @Override
     protected void initViews() {
-        CropImageView = findViewById(R.id.Crop_image_view);
+        CropImageView = (ImageView) findViewById(R.id.Crop_image_view);
     }
 
     @Override

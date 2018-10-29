@@ -32,11 +32,11 @@ public class RecyclerActivty extends SimpleActivity {
 
     @Override
     protected void initViews() {
-        mMaterialRefreshLayout = findViewById(R.id.refresh_recycler);
+        mMaterialRefreshLayout = (MaterialRefreshLayout) findViewById(R.id.refresh_recycler);
         View view = LayoutInflater.from(this).inflate(R.layout.include_drawer_header,null);
         mMaterialRefreshLayout.setHeaderView(view);
 
-        mRecycler = findViewById(R.id.Recycler);
+        mRecycler = (RecyclerView) findViewById(R.id.Recycler);
         mList = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             mList.add("iten " + i);

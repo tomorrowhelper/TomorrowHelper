@@ -34,10 +34,10 @@ public class Webview_Activity extends SimpleActivity implements JsBridge {
 
     @Override
     protected void initViews() {
-        mWebView  = findViewById(R.id.webview);
-        mTextView  = findViewById(R.id.web_tv);
-        mEditText  = findViewById(R.id.web_et);
-        mButton  = findViewById(R.id.web_btn);
+        mWebView  = (WebView) findViewById(R.id.webview);
+        mTextView  = (TextView) findViewById(R.id.web_tv);
+        mEditText  = (EditText) findViewById(R.id.web_et);
+        mButton  = (Button) findViewById(R.id.web_btn);
         mHandler = new Handler();
     }
 

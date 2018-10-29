@@ -24,7 +24,7 @@ public class PhotoWallActivity extends SimpleActivity {
 
     @Override
     protected void initViews() {
-        mPhotoWallGV = findViewById(R.id.photo_wall_GV);
+        mPhotoWallGV = (GridView) findViewById(R.id.photo_wall_GV);
 
     }
 
