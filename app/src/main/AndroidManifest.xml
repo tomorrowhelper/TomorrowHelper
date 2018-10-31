@@ -135,6 +135,7 @@
     <!--读取微信11111111111111111111111111111111111111111111111111111 end-->
 
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -148,24 +149,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.FloatingWindowActivty"/><!--悬浮窗-->
-        <activity android:name=".view.activity.RecyclerActivty"/><!--Recycler-->
-        <activity android:name=".view.activity.Glide_Activity"/><!--Glide-->
-        <activity android:name=".view.activity.CropImageActivity"/><!--裁剪Image图片-->
-        <activity android:name=".view.activity.PhotoWallActivity"/><!--LruCache缓存照片墙-->
-        <activity android:name=".view.activity.Webview_Activity"/><!--Webview-->
-        <activity android:name=".view.activity.BottomSheet_Activity"/><!--BottomSheet_Activity-->
-        <activity android:name=".view.activity.Lottie_Activity"/><!--Lottie-->
-        <activity android:name=".view.activity.LottieClickActivity"/><!--Lottie-->
-        <activity android:name=".view.activity.LottieNetworkActivity"/><!--Lottie-->
-        <activity android:name=".view.activity.FingerLoginActivity"/><!--指纹识别-->
-        <activity android:name=".view.activity.CharacterActivity"/><!--抖音字符画-->
-        <activity android:name=".view.activity.DetailsActivity" /><!--电商商品详情界面-->
+        <activity android:name=".ui.activity.FloatingWindowActivty"/><!--悬浮窗-->
+        <activity android:name=".ui.activity.RecyclerActivty"/><!--Recycler-->
+        <activity android:name=".ui.activity.Glide_Activity"/><!--Glide-->
+        <activity android:name=".ui.activity.CropImageActivity"/><!--裁剪Image图片-->
+        <activity android:name=".ui.activity.PhotoWallActivity"/><!--LruCache缓存照片墙-->
+        <activity android:name=".ui.activity.Webview_Activity"/><!--Webview-->
+        <activity android:name=".ui.activity.BottomSheet_Activity"/><!--BottomSheet_Activity-->
+        <activity android:name=".ui.activity.Lottie_Activity"/><!--Lottie-->
+        <activity android:name=".ui.activity.LottieClickActivity"/><!--Lottie-->
+        <activity android:name=".ui.activity.LottieNetworkActivity"/><!--Lottie-->
+        <activity android:name=".ui.activity.FingerLoginActivity"/><!--指纹识别-->
+        <activity android:name=".ui.activity.CharacterActivity"/><!--抖音字符画-->
+        <activity android:name=".ui.activity.DetailsActivity" /><!--电商商品详情界面-->
+        <activity android:name=".ui.activity.HorizontalChartActivity" /><!--横向柱状图-->
+        <activity android:name=".ui.activity.HorizontalChartRecyclerActivity" /><!--横向柱状图-->
 
-        <service android:name="com.example.ymeng.tomorrowhelper.view.service.DownLoadService"></service>
-        <service android:name="com.example.ymeng.tomorrowhelper.view.service.FloatingService"></service><!--悬浮窗service-->
+        <service android:name="com.example.ymeng.tomorrowhelper.ui.service.DownLoadService"></service>
+        <service android:name="com.example.ymeng.tomorrowhelper.ui.service.FloatingService"></service><!--悬浮窗service-->
         <service
-            android:name="com.example.ymeng.tomorrowhelper.view.service.WeChatLogService"
+            android:name="com.example.ymeng.tomorrowhelper.ui.service.WeChatLogService"
             android:enabled="true"
             android:exported="true"
             android:label="@string/app_name"

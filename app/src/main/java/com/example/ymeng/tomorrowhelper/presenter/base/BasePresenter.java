@@ -1,6 +1,6 @@
 package com.example.ymeng.tomorrowhelper.presenter.base;
 
-import com.example.ymeng.tomorrowhelper.view.activity.base.BaseActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.base.BaseActivity;
 
 import java.lang.ref.WeakReference;
 

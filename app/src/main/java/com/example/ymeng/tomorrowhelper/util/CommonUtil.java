@@ -20,7 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.example.ymeng.tomorrowhelper.MainActivity;
 import com.example.ymeng.tomorrowhelper.R;
-import com.example.ymeng.tomorrowhelper.view.activity.base.BaseActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.base.BaseActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

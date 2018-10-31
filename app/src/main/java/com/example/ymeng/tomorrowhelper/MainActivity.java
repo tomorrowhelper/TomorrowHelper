@@ -17,21 +17,23 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ymeng.tomorrowhelper.model.bean.Bean;
+import com.example.ymeng.tomorrowhelper.ui.activity.BottomSheet_Activity;
+import com.example.ymeng.tomorrowhelper.ui.activity.CharacterActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.CropImageActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.DetailsActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.FingerLoginActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.FloatingWindowActivty;
+import com.example.ymeng.tomorrowhelper.ui.activity.Glide_Activity;
+import com.example.ymeng.tomorrowhelper.ui.activity.HorizontalChartActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.HorizontalChartRecyclerActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.Lottie_Activity;
+import com.example.ymeng.tomorrowhelper.ui.activity.PhotoWallActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.RecyclerActivty;
+import com.example.ymeng.tomorrowhelper.ui.activity.Webview_Activity;
+import com.example.ymeng.tomorrowhelper.ui.service.DownLoadService;
 import com.example.ymeng.tomorrowhelper.util.Code;
 import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
-import com.example.ymeng.tomorrowhelper.view.activity.BottomSheet_Activity;
-import com.example.ymeng.tomorrowhelper.view.activity.CharacterActivity;
-import com.example.ymeng.tomorrowhelper.view.activity.CropImageActivity;
-import com.example.ymeng.tomorrowhelper.view.activity.DetailsActivity;
-import com.example.ymeng.tomorrowhelper.view.activity.FingerLoginActivity;
-import com.example.ymeng.tomorrowhelper.view.activity.FloatingWindowActivty;
-import com.example.ymeng.tomorrowhelper.view.activity.Glide_Activity;
-import com.example.ymeng.tomorrowhelper.view.activity.Lottie_Activity;
-import com.example.ymeng.tomorrowhelper.view.activity.PhotoWallActivity;
-import com.example.ymeng.tomorrowhelper.view.activity.RecyclerActivty;
-import com.example.ymeng.tomorrowhelper.view.activity.Webview_Activity;
-import com.example.ymeng.tomorrowhelper.view.service.DownLoadService;
 import com.google.gson.Gson;
 
 /**
@@ -271,7 +273,19 @@ public class MainActivity extends AppCompatActivity {
      */
     public void detailsBtn(View view) {
         startActivity(new Intent(this, DetailsActivity.class));
+    }
+    /**
+     * 横向柱状图
+     */
+    public void horizontalChartViewBtm(View view) {
+        startActivity(new Intent(this, HorizontalChartActivity.class));
+    }
 
+    /**
+     * 横向柱状图
+     */
+    public void horizontalChartRecyclerViewBtm(View view) {
+        startActivity(new Intent(this, HorizontalChartRecyclerActivity.class));
     }
 
     /**

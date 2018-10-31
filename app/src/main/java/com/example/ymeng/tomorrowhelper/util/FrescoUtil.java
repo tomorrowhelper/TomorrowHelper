@@ -14,7 +14,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
 
 import com.example.ymeng.tomorrowhelper.R;
-import com.example.ymeng.tomorrowhelper.app.MyApplication;
+import com.example.ymeng.tomorrowhelper.app.App;
 import com.example.ymeng.tomorrowhelper.app.constant.BaseConstants;
 import com.example.ymeng.tomorrowhelper.util.log.LogUtil;
 import com.facebook.cache.disk.DiskCacheConfig;
@@ -79,7 +79,7 @@ public class FrescoUtil {
     private final Resources res;
 
     private FrescoUtil() {
-        res = MyApplication.getInstance().getResources();
+        res = App.getInstance().getResources();
         retryImage = ResourcesCompat.getDrawable(res, DEFAULT_IMG_RETRY, null);
         failureImage = ResourcesCompat.getDrawable(res, DEFAULT_IMG_FAILURE, null);
         placeholderImage = ResourcesCompat.getDrawable(res, DEFAULT_IMG_LOADING, null);
@@ -333,7 +333,7 @@ public class FrescoUtil {
 
                 @Override
                 public void process(Bitmap bitmap) {
-                    BlurUtil.rsBlur(MyApplication.getInstance(), bitmap, 15);
+                    BlurUtil.rsBlur(App.getInstance(), bitmap, 15);
 //                    BlurUtil.javaBlur(bitmap, 15, true);
                 }
             });

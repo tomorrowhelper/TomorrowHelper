@@ -133,6 +133,18 @@
            android:onClick="detailsBtn"
            android:text="商品详情" />
 
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="horizontalChartViewBtm"
+           android:text="横向柱状图" />
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="horizontalChartRecyclerViewBtm"
+           android:text="Recycler横向" />
+
 
 
 

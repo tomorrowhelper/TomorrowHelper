@@ -1,7 +1,7 @@
 package com.example.ymeng.tomorrowhelper.model.db.helper;
 
 
-import com.example.ymeng.tomorrowhelper.app.MyApplication;
+import com.example.ymeng.tomorrowhelper.app.App;
 import com.example.ymeng.tomorrowhelper.model.db.DaoMaster;
 import com.example.ymeng.tomorrowhelper.model.db.DaoSession;
 
@@ -42,7 +42,7 @@ public class DaoManager {
 
     private void initDataBase(){
         setDebugMode(true);//默认开启Log打印
-        mSQLiteOpenHelper = new MyOpenHelper(MyApplication.getInstance(), DB_NAME, null);//建库
+        mSQLiteOpenHelper = new MyOpenHelper(App.getInstance(), DB_NAME, null);//建库
 //        mDaoMaster = new DaoMaster(mSQLiteOpenHelper.getWritableDatabase());
         mDaoMaster = new DaoMaster(mSQLiteOpenHelper.getEncryptedWritableDb("ljy_devbase_db_secret"));
         mDaoSession = mDaoMaster.newSession();

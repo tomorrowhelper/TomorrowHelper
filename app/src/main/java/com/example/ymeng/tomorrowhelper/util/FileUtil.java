@@ -4,7 +4,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.example.ymeng.tomorrowhelper.app.MyApplication;
+import com.example.ymeng.tomorrowhelper.app.App;
 import com.example.ymeng.tomorrowhelper.util.log.LogUtil;
 
 import java.io.File;
@@ -260,17 +260,17 @@ public class FileUtil {
 
     //返回"/data/user/0/com.xxx.xxx/cache"目录
     public static String getCacheDir() {
-        return MyApplication.getInstance().getCacheDir().getAbsolutePath();
+        return App.getInstance().getCacheDir().getAbsolutePath();
     }
 
     //返回"/data/user/0/com.xxx.xxx/files"目录
     public static String getFilesDir() {
-        return MyApplication.getInstance().getFilesDir().getAbsolutePath();
+        return App.getInstance().getFilesDir().getAbsolutePath();
     }
 
     //返回"/storage/emulated/0/Android/data/com.xxx.xxx/cache"目录
     public static String getExternalCacheDir() {
-        return MyApplication.getInstance().getExternalCacheDir().getAbsolutePath();
+        return App.getInstance().getExternalCacheDir().getAbsolutePath();
     }
 
     /**
@@ -279,7 +279,7 @@ public class FileUtil {
      *          例如传入Environment.DIRECTORY_ALARMS则返回"/storage/emulated/0/Android/data/com.xxx.xxx/files/Alarms"
      */
     public static String getExternalFilesDir(String type) {
-        File file = MyApplication.getInstance().getExternalFilesDir(Environment.DIRECTORY_ALARMS);
+        File file = App.getInstance().getExternalFilesDir(Environment.DIRECTORY_ALARMS);
         //返回的目录有可能不存在
         if (!file.exists()) {
             file.mkdirs();

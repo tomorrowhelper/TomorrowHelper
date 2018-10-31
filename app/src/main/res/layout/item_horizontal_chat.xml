@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_barName"
+            android:layout_width="80dp"
+            android:textSize="10sp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_toRightOf="@+id/tv_barName"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+
+            android:background="@drawable/wange" />
+
+        <SeekBar
+            android:layout_toRightOf="@+id/tv_barName"
+            android:id="@+id/sb_seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:max="50"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_bar"
+            android:splitTrack="false"
+            android:thumb="@null" />
+
+        <ProgressBar
+            android:id="@+id/pb_ProBar"
+            android:layout_toRightOf="@+id/tv_barName"
+            style= "?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:max="50"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_probar"
+            android:layout_height="5dp" />
+    </RelativeLayout>
+    <!--   <span style="color:#ff0000;"> </span>-->
+
+
+</RelativeLayout>
