@@ -16,7 +16,7 @@ import java.util.List;
  * This is RecyclerAdapter
  */
 public class DetailsAdapter extends BaseQuickAdapter<DetailsBean.DataBean,BaseViewHolder> {
-
+    onClickListoner mListoner;
     public DetailsAdapter(int layoutResId, @Nullable List data) {
         super(layoutResId, data);
     }
@@ -30,11 +30,19 @@ public class DetailsAdapter extends BaseQuickAdapter<DetailsBean.DataBean,BaseVi
        helper.setOnClickListener(R.id.tv_name,new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
+               if(mListoner!=null){
+                   mListoner.onClick(helper.getLayoutPosition());
+               }
 
            }
        });
     }
 
+    public interface onClickListoner{
+        void onClick(int position);
+    }
 
+    public void setonClickListoner(onClickListoner listoner){
+        this.mListoner = listoner;
+    }
 }

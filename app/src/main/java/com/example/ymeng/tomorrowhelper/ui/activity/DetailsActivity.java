@@ -1,5 +1,6 @@
 package com.example.ymeng.tomorrowhelper.ui.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -26,6 +27,7 @@ import okhttp3.Response;
 public class DetailsActivity extends SimpleActivity {
     private final OkHttpClient client = new OkHttpClient();
     private RecyclerView mRecycler;
+    private DetailsAdapter mAdapter;
 
     @Override
     protected int setLayout() {
@@ -70,9 +72,18 @@ String url = "http://124.205.59.226:83/SanfoBI/api/stockquery.do?partnerid=18101
                     @Override
                     public void run() {
                         DetailsBean result = new Gson().fromJson(json,  DetailsBean.class);
-
-                        DetailsAdapter mAdapter = new DetailsAdapter(R.layout.item_details, result.getData());
+                        mAdapter = new DetailsAdapter(R.layout.item_details, result.getData());
+                        mAdapter.setonClickListoner(new DetailsAdapter.onClickListoner() {
+                            @Override
+                            public void onClick(int position) {
+                                Intent intent = new Intent(mActivity,DetailsItemActivity.class);
+                                intent.putExtra("bean",DetailsBean.class);
+                                startActivity(intent);
+                            }
+                        });
                         mRecycler.setAdapter(mAdapter);
+
+
                     }
                 });
 

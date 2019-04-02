@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.ymeng.tomorrowhelper.R;
@@ -40,7 +39,7 @@ public class HorizontalChartRecyclerAdapter extends  RecyclerView.Adapter<Horizo
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         holder.mTextView.setText(mList.get(position).getName());
-        holder.mSeekBar.setProgress(mList.get(position).getCount());
+       // holder.mSeekBar.setProgress(mList.get(position).getCount());
         holder.mPb_ProBar.setProgress(mList.get(position).getCount());
     }
 
@@ -52,13 +51,13 @@ public class HorizontalChartRecyclerAdapter extends  RecyclerView.Adapter<Horizo
 class ItemViewHolder extends RecyclerView.ViewHolder {
     //初始化
     private TextView mTextView;
-    private SeekBar mSeekBar;
+//    private SeekBar mSeekBar;
     private ProgressBar mPb_ProBar;
 
     public ItemViewHolder(View itemView) {
         super(itemView);
         mTextView = (TextView) itemView.findViewById(R.id.tv_barName);
-        mSeekBar = (SeekBar) itemView.findViewById(R.id.sb_seekBar);
+     //   mSeekBar = (SeekBar) itemView.findViewById(R.id.sb_seekBar);
         mPb_ProBar = (ProgressBar) itemView.findViewById(R.id.pb_ProBar);
 
     }

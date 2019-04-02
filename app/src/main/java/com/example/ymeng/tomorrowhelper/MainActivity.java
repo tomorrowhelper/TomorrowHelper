@@ -19,20 +19,22 @@ import com.bumptech.glide.Glide;
 import com.example.ymeng.tomorrowhelper.model.bean.Bean;
 import com.example.ymeng.tomorrowhelper.ui.activity.BottomSheet_Activity;
 import com.example.ymeng.tomorrowhelper.ui.activity.CharacterActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.CoordLayoutTwoActivity;
 import com.example.ymeng.tomorrowhelper.ui.activity.CropImageActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.Dagger_Activity;
 import com.example.ymeng.tomorrowhelper.ui.activity.DetailsActivity;
 import com.example.ymeng.tomorrowhelper.ui.activity.FingerLoginActivity;
 import com.example.ymeng.tomorrowhelper.ui.activity.FloatingWindowActivty;
 import com.example.ymeng.tomorrowhelper.ui.activity.Glide_Activity;
 import com.example.ymeng.tomorrowhelper.ui.activity.HorizontalChartActivity;
 import com.example.ymeng.tomorrowhelper.ui.activity.HorizontalChartRecyclerActivity;
+import com.example.ymeng.tomorrowhelper.ui.activity.LambdaBtmActivity;
 import com.example.ymeng.tomorrowhelper.ui.activity.Lottie_Activity;
 import com.example.ymeng.tomorrowhelper.ui.activity.PhotoWallActivity;
 import com.example.ymeng.tomorrowhelper.ui.activity.RecyclerActivty;
 import com.example.ymeng.tomorrowhelper.ui.activity.Webview_Activity;
 import com.example.ymeng.tomorrowhelper.ui.service.DownLoadService;
 import com.example.ymeng.tomorrowhelper.util.Code;
-import com.example.ymeng.tomorrowhelper.util.NotificationHelper;
 import com.example.ymeng.tomorrowhelper.util.ToastUtil;
 import com.google.gson.Gson;
 
@@ -115,9 +117,8 @@ public class MainActivity extends AppCompatActivity {
         FileProvider7.setIntentDataAndType(MainActivity.this, intent, "application/vnd.android.package-archive", file, true);
         // MainActivity.this.startActivityForResult(intent, 125);// 如果用户取消安装的话,会返回结果,回调方法onActivityResult
         MainActivity.this.startActivity(intent);*/
-        NotificationHelper notificationUtils = new NotificationHelper(this);
-        notificationUtils.sendNotification("测试标题", "测试内容");
-
+       // NotificationHelper notificationUtils = new NotificationHelper(this);
+       // notificationUtils.sendNotification("测试标题", "测试内容");
 
     }
 
@@ -251,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
      * dagger
      */
     public void daggerBtn(View view) {
-        startActivity(new Intent(this, Lottie_Activity.class));
+        startActivity(new Intent(this, Dagger_Activity.class));
     }
 
     /**
@@ -287,6 +288,32 @@ public class MainActivity extends AppCompatActivity {
     public void horizontalChartRecyclerViewBtm(View view) {
         startActivity(new Intent(this, HorizontalChartRecyclerActivity.class));
     }
+
+    /**
+     * lambda表达式
+     */
+    public void lambdaBtm(View view) {
+        startActivity(new Intent(this, LambdaBtmActivity.class));
+
+    }
+
+    /**
+     * 饼状图
+     */
+    public void pieChartBtm(View view) {
+    }
+
+    /**
+     * CoordLayout联动
+     */
+    public void CoordLayoutBtn(View view) {
+       // startActivity(new Intent(this, CoordLayoutActivity.class));
+        startActivity(new Intent(this, CoordLayoutTwoActivity.class));
+    }
+
+
+
+
 
     /**
      * 4984513019362056

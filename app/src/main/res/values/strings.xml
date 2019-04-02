@@ -12,7 +12,7 @@
     <string name="loadFail_reload">点击屏幕重试</string>
     <string name="no_data">啥都没有</string>
     <string name="load_all_finish">全部加载完毕</string>
-
+    <string name="action_settings">Settings</string>
     <!-- drawerlayout -->
     <string name="open">打开</string>
     <string name="close">关闭</string>
@@ -20,5 +20,25 @@
     <string name="exit_confirm">再点一次退出程序</string>
 
     <string name="my_accessibility_description">读取微信消息</string>
+    <string name="collapsing_layout_text">Android提供了一个内容丰富的应用框架，支持您在Java语言环境中为移动设备开发创新应用和游戏。在左侧导航窗格列出的文档中，提供了有关如何使用各种Android API开发应用的详细信息。
+
+如果您是Android应用开发新手，则需了解以下有关Android应用框架的基本概念，这一点至关重要：
+
+应用提供多个入口点
+Android应用都是将各种可单独调用的不同组件加以组合开发而成。例如，组件可以是为用户界面提供一个屏幕的单个“活动”，也可以是在后台独立执行工作的“服务”。
+
+您可以使用意图从一个组件启动另一个组件。甚至，您还可以启动不同应用中的组件，例如，启动地图应用中的活动以显示地址。此模式可为单个应用提供多个入口点，并使任何应用均能够像用户“默认设置”一样处理其他应用可能调用的操作。
+
+了解详情：
+
+应用基础知识
+Intent和Intent过滤器
+活动
+应用可适应不同的设备
+Android提供了一个自适应应用框架，可用以为不同的设备配置提供独特的资源。例如，您可以针对不同的屏幕尺寸创建不同的XML布局文件，系统将根据当前设备的屏幕尺寸确定要应用的布局。
+
+如有任何应用功能需要相机等特定的硬件，则可在运行时查询设备功能的可用性。如有必要，您还可以声明您的应用所必需的功能，使Google Play商店等应用市场不得在不支持这些功能的设备上安装您的应用。</string>
+
+
 
 </resources>

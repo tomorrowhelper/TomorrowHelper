@@ -16,5 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+   <WebView
+       android:id="@+id/wv_glide"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"></WebView>
+
 
 </LinearLayout>

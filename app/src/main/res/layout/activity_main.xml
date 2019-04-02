@@ -145,6 +145,22 @@
            android:onClick="horizontalChartRecyclerViewBtm"
            android:text="Recycler横向" />
 
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="lambdaBtm"
+           android:text="lambda" />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="pieChartBtm"
+           android:text="饼状图" />
+       <Button
+           android:layout_width="110dp"
+           android:layout_height="wrap_content"
+           android:onClick="CoordLayoutBtn"
+           android:text="CoordinatorLayout的联动" />
+
 
 
 

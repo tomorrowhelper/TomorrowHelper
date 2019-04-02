@@ -26,9 +26,9 @@ import java.util.ArrayList;
  * Time:2018/10/30  10:40
  * This is HorizontalChartActivity
  */
-public class HorizontalChartActivity extends SimpleActivity  implements OnChartValueSelectedListener, View.OnClickListener{
+public class HorizontalChartActivity extends SimpleActivity implements OnChartValueSelectedListener, View.OnClickListener{
 
-    private HorizontalBarChart mHorizontalBarChart;
+   private HorizontalBarChart mHorizontalBarChart;
 
     //显示顶点值
     private Button btn_show_values;

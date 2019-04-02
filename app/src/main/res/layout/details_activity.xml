@@ -2,6 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_height="30dp" />
+        <View
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_sp_cl"
+            android:layout_height="50dp"></View>
+    </RelativeLayout>
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_details"

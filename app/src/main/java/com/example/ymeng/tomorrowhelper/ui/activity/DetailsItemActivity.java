@@ -1,5 +1,6 @@
 package com.example.ymeng.tomorrowhelper.ui.activity;
 
+import com.example.ymeng.tomorrowhelper.R;
 import com.example.ymeng.tomorrowhelper.ui.activity.base.SimpleActivity;
 
 /**
@@ -10,7 +11,7 @@ import com.example.ymeng.tomorrowhelper.ui.activity.base.SimpleActivity;
 public class DetailsItemActivity extends SimpleActivity {
     @Override
     protected int setLayout() {
-        return 0;
+        return R.layout.details_item_activity;
     }
 
     @Override

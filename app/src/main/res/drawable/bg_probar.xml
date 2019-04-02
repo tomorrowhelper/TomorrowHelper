@@ -4,7 +4,7 @@
     <item android:id ="@android:id/progress">
         <clip >
             <shape >
-                <corners android:radius ="5dip" />
+                <corners android:radius ="0dip" />
 
                 <gradient
                     android:angle= "270"
@@ -18,7 +18,7 @@
     <item android:id ="@android:id/secondaryProgress">
         <clip >
             <shape >
-                <corners android:radius ="5dip" />
+                <corners android:radius ="0dip" />
 
                 <gradient
                     android:angle= "270"

@@ -161,12 +161,16 @@
         <activity android:name=".ui.activity.LottieNetworkActivity"/><!--Lottie-->
         <activity android:name=".ui.activity.FingerLoginActivity"/><!--指纹识别-->
         <activity android:name=".ui.activity.CharacterActivity"/><!--抖音字符画-->
-        <activity android:name=".ui.activity.DetailsActivity" /><!--电商商品详情界面-->
+        <activity android:name=".ui.activity.DetailsActivity" /><!--电商商品界面-->
+        <activity android:name=".ui.activity.DetailsItemActivity" /><!--电商商品详情界面-->
         <activity android:name=".ui.activity.HorizontalChartActivity" /><!--横向柱状图-->
         <activity android:name=".ui.activity.HorizontalChartRecyclerActivity" /><!--横向柱状图-->
+        <activity android:name=".ui.activity.LambdaBtmActivity" /><!--Lambda表达式-->
+        <activity android:name=".ui.activity.CoordLayoutActivity" /><!--CoordinatorLayout的联动-->
+        <activity android:name=".ui.activity.CoordLayoutTwoActivity" android:theme="@style/AppTheme2"/><!--CoordinatorLayout的联动-->
 
-        <service android:name="com.example.ymeng.tomorrowhelper.ui.service.DownLoadService"></service>
-        <service android:name="com.example.ymeng.tomorrowhelper.ui.service.FloatingService"></service><!--悬浮窗service-->
+        <service android:name="com.example.ymeng.tomorrowhelper.ui.service.DownLoadService"/>
+        <service android:name="com.example.ymeng.tomorrowhelper.ui.service.FloatingService" /><!--悬浮窗service-->
         <service
             android:name="com.example.ymeng.tomorrowhelper.ui.service.WeChatLogService"
             android:enabled="true"
