@@ -164,8 +164,8 @@
         <activity android:name=".ui.activity.DetailsActivity" /><!--电商商品界面-->
         <activity android:name=".ui.activity.DetailsItemActivity" /><!--电商商品详情界面-->
         <activity android:name=".ui.activity.HorizontalChartActivity" /><!--横向柱状图-->
-        <activity android:name=".ui.activity.HorizontalChartRecyclerActivity" /><!--横向柱状图-->
-        <activity android:name=".ui.activity.LambdaBtmActivity" /><!--Lambda表达式-->
+        <activity android:name=".ui.activity.HorizontalChartRecyclerActivity" /><!-- 横向柱状图-->
+        <activity android:name=".ui.activity.LambdaBtmActivity" /><!--Lambda 表达式-->
         <activity android:name=".ui.activity.CoordLayoutActivity" /><!--CoordinatorLayout的联动-->
         <activity android:name=".ui.activity.CoordLayoutTwoActivity" android:theme="@style/AppTheme2"/><!--CoordinatorLayout的联动-->
 
